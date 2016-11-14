@@ -1,0 +1,37 @@
+[core]
+	editor = nvim
+
+[color]
+	ui = true
+
+[push]
+	default = simple
+
+[alias]
+	aa = add -A
+	br = branch
+	cm = commit
+	co = checkout
+	chp = cherry-pick
+	df = diff
+	dfc = diff --cached
+	me = merge
+	st = status -sb
+
+	puff = pull --ff-only
+	purr = pull --rebase
+
+	ours = checkout --ours
+	theirs = checkout --theirs
+	unstage = reset HEAD
+
+	l = log --graph --all --format=format:'%C(bold blue)%h%C(reset)\
+		- %C(bold green)(%ar)%C(reset) %C(bold red)%d%C(reset)\
+		%C(white)%s%C(reset) %C(bold white)— %an%C(reset)'\
+		--abbrev-commit --date=relative
+
+[merge]
+	tool = vimdiff
+
+[diff]
+	algorithm = histogram

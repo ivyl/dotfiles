@@ -1,0 +1,25 @@
+colorscheme zenburn
+
+cmap <C-p> <Up>
+cmap <C-n> <Down>
+
+nmap "\\h" :set<Space>hlfind!<Return>
+nmap "\\a" :addons<Return>
+nmap "\\A" :dialog<Space>addons<Return>
+nmap "\\p" :window<Space>-private<Space>open<Return>
+nmap "\\f" :set<Space>fullscreen!<Return>
+nmap "\\d" :downloads<Return>
+
+nmap gf :tab<Space>viewsource<Return>
+
+nmap gb :buffer<Space>
+nnoremap b <Nop>
+
+set defsearch=google
+
+set hintchars=hjklasdf
+set gui+=nonavigation
+set noinsertmode
+set focuscontent
+
+" vim: set ft=vimperator:

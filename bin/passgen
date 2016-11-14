@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+# Usage: __FILE__ number_of_passwords words_in_password
+#
+# https://xkcd.com/936/
+# This method is great, but people tend to chose only
+# certain subset of words. This is solution.
+#
+# Generate set of X passwords and choose one.
+#
+# To dump dictionary (change pl to preferred language):
+# aspell -l pl dump master | sed 's/\/.*//g' > dict
+
+path = File.join(File.dirname(__FILE__), "dict")
+dict = File.read(path).split
+
+size = dict.size
+
+ARGV[0].to_i.times do
+  pass = []
+  ARGV[1].to_i.times { pass << dict[rand(size)] }
+  puts pass.join " "
+end

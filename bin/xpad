@@ -1,0 +1,4 @@
+#!/bin/sh
+sudo pkill xboxdrv
+sleep 2
+sudo xboxdrv --mimic-xpad --deadzone 6000 --daemon --detach --next-controller --dbus disabled
