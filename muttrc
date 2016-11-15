@@ -10,9 +10,11 @@ set timeout=10
 set sort=threads
 set sort_aux=reverse-date
 
-set spoolfile = "+INBOX"
+set send_charset="us-ascii:utf-8"
+unignore Message-id References
 
-set send_charset=utf-8
+set askcc=yes
+set askbcc=yes
 
 set editor=nvim
 set edit_headers
@@ -37,6 +39,8 @@ bind generic,browser,index,attach   gg      first-entry
 bind generic,browser,index,attach   G       last-entry
 bind index                          R       group-reply
 bind index <space>    collapse-thread
+
+bind editor <Tab> complete-query
 
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 
