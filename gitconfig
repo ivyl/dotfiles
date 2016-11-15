@@ -52,4 +52,4 @@
 	templatedir = ~/.dotfiles/git_template
 
 [diff]
-	algorithm = histogram
+	algorithm = patience
