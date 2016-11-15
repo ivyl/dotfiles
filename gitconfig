@@ -34,7 +34,22 @@
 		--abbrev-commit --date=relative
 
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
+
+[mergetool]
+	prompt = true
+
+[difftool]
+	prompt = true
+
+[difftool "nvimdiff"]
+	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[mergetool "nvimdiff"]
+	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\""
+
+[init]
+	templatedir = ~/.dotfiles/git_template
 
 [diff]
 	algorithm = histogram
