@@ -13,11 +13,14 @@
 	cm = commit
 	co = checkout
 	chp = cherry-pick
+	dt = difftool
 	df = diff
 	dfc = diff --cached
+	fe = fetch
 	me = merge
+	mt = mergetool
 	st = status -sb
-
+	rv = review
 	puff = pull --ff-only
 	purr = pull --rebase
 
