@@ -22,4 +22,7 @@ set gui+=nonavigation
 set noinsertmode
 set focuscontent
 
+command proxyoff :set! network.proxy.type=0
+command proxyon :set! network.proxy.type=1
+
 " vim: set ft=vimperator:
