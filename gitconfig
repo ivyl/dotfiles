@@ -23,6 +23,7 @@
 	rv = review
 	puff = pull --ff-only
 	purr = pull --rebase
+	root = rev-parse --show-toplevel
 
 	ours = checkout --ours
 	theirs = checkout --theirs
