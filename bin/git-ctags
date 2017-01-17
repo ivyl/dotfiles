@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+cd $(git root)
 trap "rm -f .git/tags.$$" EXIT
 ctags --tag-relative -Rf.git/tags.$$ --exclude=.git --exclude=log --exclude=doc --languages=-javascript,sql
 mv .git/tags.$$ .git/tags
