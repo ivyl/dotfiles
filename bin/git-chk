@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd $(git root)
+./scripts/checkpatch.pl -g $@
