@@ -1,30 +1,48 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+
 set -ue
 
+function sanitize_password_store_dir {
+    PASSWORD_STORE_DIR=${PASSWORD_STORE_DIR-~/.password-store}
 
-if ! command -v xdotool &> /dev/null; then
-    printf "You need to install xdotool.\n" 1>&2
-    exit 1
-fi
+    if [[ ! -d "$PASSWORD_STORE_DIR" ]]; then
+        printf "Configure \$PASSWORD_STORE_DIR.\n" 1>&2
+        exit 1
+    fi
+}
 
-output="$(pass $@)"
 
-exit_code="$?"
-if [[ "$exit_code" -gt 0 ]]; then
-    exit "$exit_code"
-fi
+function dmenu_select {
+    local matches=("$PASSWORD_STORE_DIR"/**/*.gpg)
+    local matches=("${matches[@]#"$PASSWORD_STORE_DIR"/}")
+    local matches=("${matches[@]%.gpg}")
 
-password="$(printf "%s" "$output" | head -n 1)"
-username="$(printf "%s" "$output" | grep '^username: ' | cut -c 11-)"
+    local choice="$(printf '%s\n' ${matches[@]} | dmenu -p 'pass-autotype' $@)"
 
-active_window_id="$(xdotool getactivewindow)"
-
-if [[ -n "$password" ]]; then
-    if [[ -n "$username" ]]; then
-        xdotool type --window "$active_window_id" "$username"
-        xdotool key --window "$active_window_id" "Tab"
-        xdotool type --window "$active_window_id" "i"
+    if [[ -z $choice ]]; then
+        printf "Nothing choosen.\n" 1>&2
+        exit 1
     fi
 
-    xdotool type --window "$active_window_id" "$password"
-fi
+    echo "$choice"
+}
+
+
+function xdotool_type_choice {
+    local choice="$1"
+
+    pass "$choice" |
+        { read -r pass; printf %s "$pass"; } |
+        xdotool type --clearmodifiers --file -
+}
+
+
+function main {
+    sanitize_password_store_dir
+
+    local choice=$(dmenu_select $@)
+    xdotool_type_choice $choice
+}
+
+
+main $@
