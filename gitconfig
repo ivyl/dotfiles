@@ -49,8 +49,5 @@
 [mergetool "nvimdiff"]
 	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\""
 
-[init]
-	templatedir = ~/.dotfiles/git_template
-
 [diff]
 	algorithm = patience
