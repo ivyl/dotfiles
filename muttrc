@@ -26,7 +26,6 @@ set ssl_starttls=yes
 set ssl_force_tls=yes
 
 source ~/.config/dotfiles-priv/accounts.muttrc
-set signature="~/.config/dotfiles-priv/signature"
 
 auto_view text/html
 alternative_order text/plain text/enriched text/html
