@@ -10,7 +10,7 @@ set mail_check=50
 set timeout=10
 
 set sort=threads
-set sort_aux=reverse-date
+set sort_aux=reverse-last-date
 
 set send_charset="us-ascii:utf-8"
 unignore Message-id References
@@ -35,10 +35,12 @@ alternative_order text/plain text/enriched text/html
 
 bind pager k  previous-line
 bind pager j  next-line
+bind pager g  noop
 bind pager gg top
 bind pager G  bottom
 bind pager R  group-reply
 
+bind generic,browser,index,attach   g       noop
 bind generic,browser,index,attach   gg      first-entry
 bind generic,browser,index,attach   G       last-entry
 bind index                          R       group-reply
@@ -48,6 +50,13 @@ bind index - recall-message
 
 bind editor <Tab> complete-query
 
+bind index,pager S vfolder-from-query
+bind index,pager B   sidebar-toggle-visible
+bind index,pager <esc>b sidebar-next
+bind index,pager <esc>B sidebar-prev
+bind index,pager <esc>o sidebar-open
+
+macro index,pager y "<change-vfolder>?"
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 
 
@@ -69,6 +78,11 @@ mono  bold          bold
 mono  underline     underline
 mono  indicator     reverse
 mono  error         bold
+
+# sidebar --------------------------------------------------------------
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+color sidebar_indicator yellow default
+color sidebar_highlight brightblack yellow
 
 # index ----------------------------------------------------------------
 
