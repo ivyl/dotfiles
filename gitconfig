@@ -22,6 +22,7 @@
 	st  = status -sb
 	r   = remote -v
 
+	pulla = pull
 	puff = pull --ff-only
 	purr = pull --rebase
 	root = rev-parse --show-toplevel
