@@ -29,6 +29,10 @@
 
 	ours    = checkout --ours
 	theirs  = checkout --theirs
+
+	gud = bisect good
+	bad = bisect bad
+
 	unstage = reset HEAD
 
 	cite = log -1 --abbrev=12 --format='%h (\"%s\")'
