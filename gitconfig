@@ -31,6 +31,8 @@
 	theirs  = checkout --theirs
 	unstage = reset HEAD
 
+	cite = log -1 --abbrev=12 --format='%h (\"%s\")'
+
 	l = log --graph --all --format=format:'%C(bold blue)%h%C(reset)\
 		- %C(bold green)(%ar)%C(reset) %C(bold red)%d%C(reset)\
 		%C(white)%s%C(reset) %C(bold white)— %an%C(reset)'\
