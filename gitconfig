@@ -20,7 +20,7 @@
 	me  = merge
 	mt  = mergetool
 	st  = status -sb
-	rv  = review
+	r   = remote -v
 
 	puff = pull --ff-only
 	purr = pull --rebase
