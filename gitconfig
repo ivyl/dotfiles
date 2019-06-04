@@ -8,25 +8,26 @@
 	default = simple
 
 [alias]
-	aa = add -A
-	br = branch
-	cm = commit
-	co = checkout
+	aa  = add -A
+	br  = branch
+	cm  = commit
+	co  = checkout
 	chp = cherry-pick
-	dt = difftool
-	df = diff
+	dt  = difftool
+	df  = diff
 	dfc = diff --cached
-	fe = fetch
-	me = merge
-	mt = mergetool
-	st = status -sb
-	rv = review
+	fe  = fetch
+	me  = merge
+	mt  = mergetool
+	st  = status -sb
+	rv  = review
+
 	puff = pull --ff-only
 	purr = pull --rebase
 	root = rev-parse --show-toplevel
 
-	ours = checkout --ours
-	theirs = checkout --theirs
+	ours    = checkout --ours
+	theirs  = checkout --theirs
 	unstage = reset HEAD
 
 	l = log --graph --all --format=format:'%C(bold blue)%h%C(reset)\
